@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ -f "$1/index.cfm" || -f "$1/Application.cfc" || -f "$1/Application.cfm" || -f "$1/application.cfc" || -f "$1/application.cfm" ]]; then
+  echo "CFML" && exit 0
+else
+  exit 1
+fi

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bin/release <build-dir>
+
+cat << EOF
+addons: []
+default_process_types:
+  web: "cd /app && /app/bin/box server start && touch /tmp/server.log && sleep 5 && tail -f /tmp/server.log"
+EOF

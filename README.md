@@ -41,7 +41,11 @@ Create a file in the root of your project named .buildpacks and add the followin
 https://github.com/ortus-solutions/heroku-buildpack-commandbox.git
 ```
 
-Now configure a new Git remote for your 
+Now configure a new Git remote for your Dokku deployment ( Dokku will create the repo automatically if it doesn't exist ):
+
+```
+git remote add dokku https://dokku.mydomain.com/myapp.mydomain.com.git
+```
 
 
 # Deployment

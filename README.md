@@ -7,7 +7,7 @@ This is the Heroku/Dokku buildpack for CommandBox
 
 The buildpack will allow you to deploy your CFML applications directly to Heroku (or to Dokku-enabled hosts) using Commandbox CFML servers.  It allows you to specify your custom server configuration settings using the CommandBox server API, avoiding additional script and configuration files during the Heroku deployment process.
 
-#Usage
+## Usage
 
 While both [Heroku](https://www.heroku.com/) and [Dokku](http://dokku.viewdocs.io/dokku/) proxy their traffic through NGINX, all files, including static assets, in your app will be served by the underlying Commandbox servlet container and the assigned CFML engine.  As such, deployments with this build pack are primarily targeted towards low to medium traffic sites.   Use cases include staging sites, bug logs, and system monitors and middleware apps which provide service to other applications in your stack.  For more robust deployments consider using a customized buildpack using Tomcat behind Apache or NGINX.
 
@@ -52,7 +52,7 @@ git remote add dokku https://dokku.mydomain.com/myapp.mydomain.com.git
 ```
 
 
-# Deployment
+## Deployment
 
 Both Heroku and Dokku use a git push to the repository to trigger deployment.  By default the master branch is the only branch triggered for deployment with a push.  A simple push the repository triggers the deployment (using the remote name you set in configuration):
 
@@ -69,10 +69,12 @@ git push heroku yourbranch:master
 Note:  Once deployment is returned as successful, you may receive NGINX 502 errors for up to 60 seconds as the CommandBox server starts up for the first time.
 
 
-##LICENSE
+## LICENSE
 Apache License, Version 2.0.
 
-####HONOR GOES TO GOD ABOVE ALL
+<hr/>
+
+#### HONOR GOES TO GOD ABOVE ALL
 Because of His grace, this project exists. If you don't like this, then don't read it, its not for you.
 
 >"Therefore being justified by faith, we have peace with God through our Lord Jesus Christ:
@@ -82,5 +84,5 @@ And patience, experience; and experience, hope:
 And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the 
 Holy Ghost which is given unto us. ." Romans 5:5
 
-###THE DAILY BREAD
+#### THE DAILY BREAD
  > "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12

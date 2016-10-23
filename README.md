@@ -1,4 +1,4 @@
-Heroku buildpack for CommandBox [![Build Status](https://travis-ci.org/ortus-solutions/heroku-buildpack-commandbox.svg)](https://travis-ci.org/ortus-solutions/heroku-buildpack-commandbox)
+Heroku buildpack for CommandBox [![Build Status](https://travis-ci.org/Ortus-Solutions/heroku-buildpack-commandbox.svg)](https://travis-ci.org/Ortus-Solutions/heroku-buildpack-commandbox)
 =========================
 
 This is the Heroku/Dokku buildpack for CommandBox

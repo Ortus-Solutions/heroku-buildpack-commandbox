@@ -5,11 +5,13 @@ This is the Heroku/Dokku buildpack for CommandBox
 
 ## How it works
 
-The buildpack will allow you to deploy your CFML applications directly to Heroku (or to Dokku-enabled hosts) using Commandbox CFML servers.  It allows you to specify your custom server configuration settings using the CommandBox server API, avoiding additional script and configuration files during the Heroku deployment process.
+The buildpack will allow you to deploy your CFML applications directly to Heroku (or to Dokku-enabled hosts) using CommandBox to manage your CFML engine.  It allows you to specify your custom server configuration settings using the CommandBox server API, avoiding additional script and configuration files during the Heroku deployment process.
 
 ## Usage
 
-While both [Heroku](https://www.heroku.com/) and [Dokku](http://dokku.viewdocs.io/dokku/) proxy their traffic through NGINX, all files, including static assets, in your app will be served by the underlying Commandbox servlet container and the assigned CFML engine.  As such, deployments with this build pack are primarily targeted towards low to medium traffic sites.   Use cases include staging sites, bug logs, and system monitors and middleware apps which provide service to other applications in your stack.  For more robust deployments consider using a customized buildpack using Tomcat behind Apache or NGINX.
+While both [Heroku](https://www.heroku.com/) and [Dokku](http://dokku.viewdocs.io/dokku/) proxy their traffic through NGINX, all files, including static assets, in your app will be served by the underlying Commandbox servlet container and the assigned CFML engine.  As such, deployments with this build pack are primarily targeted towards low to medium traffic sites.   Use cases include staging sites, bug logs, and system monitors and middleware apps which provide service to other applications in your stack.  
+
+For more robust, high-traffic deployments consider using a customized buildpack using Tomcat behind Apache or NGINX.
 
 ## Configuration
 

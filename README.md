@@ -17,7 +17,7 @@ For more robust, high-traffic deployments consider using a customized buildpack 
 
 Below are the configuration options for both Heroku and Dokku environments.
 
-## Heroku Configuration
+### Heroku Configuration
 
 Create your heroku app:
 
@@ -39,7 +39,7 @@ Set your buildpack for Heroku with the command
 heroku buildpacks:set https://github.com/ortus-solutions/heroku-buildpack-commandbox.git
 ```
 
-## Dokku Configuration
+### Dokku Configuration
 
 Create a file in the root of your project named .buildpacks and add the following to that file:
 

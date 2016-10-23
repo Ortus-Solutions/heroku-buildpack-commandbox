@@ -34,7 +34,7 @@ unzip /tmp/box.zip -d $BUILD_DIR/bin
 chmod +x $BUILD_DIR/bin/box
 #Set our commandbox home directory
 touch $BUILD_DIR/bin/commandbox.properties
-echo "./.Commandbox" > $BUILD_DIR/bin/commandbox.properties
+echo "/app/bin/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
 
 COMMANDBOX_VERSION="$(box version)"
 
@@ -43,9 +43,11 @@ status "$COMMANDBOX_VERSION successfully installed"
 # change to build directory to handle ComandBox Startup
 cd $BUILD_DIR
 
-if [ -z "$PORT" ]; then export PORT=5000; fi
+status "Port variable set to ${PORT}"
 
-status "Application port set to $PORT"
+if [ -z "${PORT}" ]; then PORT=5000; fi
+
+status "Application port set to ${PORT}"
 
 status "Configuring Container Networking"
 box server set web.http.port=$PORT

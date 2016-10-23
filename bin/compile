@@ -27,11 +27,6 @@ mkdir -p $CACHE_DIR
 
 status "Installing CommandBox"
 
-#su apt-key adv --keyserver keys.gnupg.net --recv 6DA70622
-#echo "deb http://integration.stg.ortussolutions.com/artifacts/debs/noarch /" | su tee -a /etc/apt/sources.list.d/commandbox.list
-#su apt-get update 
-#su apt-get --assume-yes install commandbox
-
 curl --location 'https://www.ortussolutions.com/parent/download/commandbox/type/bin' -o /tmp/box.zip
 mkdir $BUILD_DIR/bin
 export PATH=$PATH:$BUILD_DIR/bin
@@ -50,7 +45,9 @@ cd $BUILD_DIR
 
 export PORT=5000
 
+status "Configuring Container Networking"
 box server set web.http.port=$PORT
 box server set web.host=0.0.0.0
 box server set openbrowser=false
+status "Network Configuration Complete"
 

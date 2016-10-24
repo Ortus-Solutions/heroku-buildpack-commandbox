@@ -34,7 +34,8 @@ unzip /tmp/box.zip -d $BUILD_DIR/bin
 chmod +x $BUILD_DIR/bin/box
 #Set our commandbox home directory
 touch $BUILD_DIR/bin/commandbox.properties
-echo "/app/bin/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
+chmod +rw $BUILD_DIR/bin/commandbox.properties
+echo "/app/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
 
 COMMANDBOX_VERSION="$(box version)"
 
@@ -47,4 +48,7 @@ status "Configuring Container Host"
 box server set web.host=0.0.0.0
 box server set openbrowser=false
 status "Host Configuration Complete"
+
+
+status "Commandbox Compilation Complete"
 

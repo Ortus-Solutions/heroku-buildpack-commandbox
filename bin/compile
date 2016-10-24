@@ -43,8 +43,6 @@ status "$COMMANDBOX_VERSION successfully installed"
 # change to build directory to handle ComandBox Startup
 cd $BUILD_DIR
 
-status "Environment Port Set to ${process.env.PORT}"
-
 status "Port variable set as $PORT"
 
 

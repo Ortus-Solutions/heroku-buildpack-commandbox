@@ -43,8 +43,18 @@ status "$COMMANDBOX_VERSION successfully installed"
 # change to build directory to handle ComandBox Startup
 cd $BUILD_DIR
 
-status "Configuring Container Host"
+status "Environment Port Set to ${process.env.PORT}"
+
+status "Port variable set as $PORT"
+
+
+if [ -z "${PORT}" ]; then PORT=5000; fi
+
+status "Application port set to ${PORT}"
+
+status "Configuring Container Networking"
+box server set web.http.port=$PORT
 box server set web.host=0.0.0.0
 box server set openbrowser=false
-status "Host Configuration Complete"
+status "Network Configuration Complete"
 

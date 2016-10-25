@@ -15,7 +15,7 @@ For more robust, high-traffic deployments consider using a customized buildpack 
 
 Deploy a sample app:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ortus-solutions/heroku-commandbox-sample)
 
 ## Configuration
 

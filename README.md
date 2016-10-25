@@ -1,4 +1,4 @@
-Heroku buildpack for CommandBox [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) [![Build Status](https://travis-ci.org/Ortus-Solutions/heroku-buildpack-commandbox.svg)](https://travis-ci.org/Ortus-Solutions/heroku-buildpack-commandbox)
+Heroku buildpack for CommandBox [![Build Status](https://travis-ci.org/Ortus-Solutions/heroku-buildpack-commandbox.svg)](https://travis-ci.org/Ortus-Solutions/heroku-buildpack-commandbox)
 =========================
 
 This is the Heroku/Dokku buildpack for CommandBox
@@ -12,6 +12,10 @@ The buildpack will allow you to deploy your CFML applications directly to Heroku
 While both [Heroku](https://www.heroku.com/) and [Dokku](http://dokku.viewdocs.io/dokku/) proxy their traffic through NGINX, all files, including static assets, in your app will be served by the underlying Commandbox servlet container and the assigned CFML engine.  As such, deployments with this build pack are primarily targeted towards low to medium traffic sites.   Use cases include staging sites, bug logs, and system monitors and middleware apps which provide service to other applications in your stack.  
 
 For more robust, high-traffic deployments consider using a customized buildpack using Tomcat behind Apache or NGINX.
+
+Deploy a sample app:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Configuration
 

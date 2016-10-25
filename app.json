@@ -1,6 +1,6 @@
 {
   "name": "Commandbox Heroku Sample App",
-  "description": "A barebones Node.js app using Express 4",
+  "description": "A basic example application using Commandbox on Heroku",
   "repository": "https://github.com/Ortus-Solutions/heroku-commandbox-sample",
   "logo": "https://www.ortussolutions.com/__media/commandbox-185-logo.png",
   "keywords": ["commandbox", "coldbox", "cfml", "lucee", "coldfusion"],

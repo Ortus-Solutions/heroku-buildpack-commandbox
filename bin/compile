@@ -27,6 +27,7 @@ mkdir -p $CACHE_DIR
 
 status "Installing haveged for additional entropy"
 curl --location 'http://www.issihosts.com/haveged/haveged-1.9.1.tar.gz' -o /tmp/haveged.tar.gz
+mkdir /tmp/haveged
 tar zxvf /tmp/haveged.tar.gz -C /tmp/haveged
 cd /tmp/haveged && ./configure & make & make install
 /usr/local/sbin/haveged -w 1024

@@ -25,6 +25,10 @@ install_java_with_overlay ${BUILD_DIR}
 
 mkdir -p $CACHE_DIR
 
+status "Installing supplemental packages"
+apt-get install --assume-yes haveged nodejs
+npm install -g bower
+
 status "Installing CommandBox"
 
 curl --location 'https://www.ortussolutions.com/parent/download/commandbox/type/bin' -o /tmp/box.zip

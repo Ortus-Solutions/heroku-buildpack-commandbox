@@ -28,7 +28,11 @@ mkdir -p $CACHE_DIR
 status "Installing haveged for additional entropy"
 curl --location 'http://www.issihosts.com/haveged/haveged-1.9.1.tar.gz' -o /tmp/haveged.tar.gz
 HAVEGED_DIR=`tar zxvf /tmp/haveged.tar.gz | head -1 | cut -f1 -d"/"`
-cd /tmp/$HAVEGED_DIR && ./configure && make && make install
+
+status "HAVEGED extracted to /tmp/$HAVEGED_DIR"
+/tmp/$HAVEGED_DIR/configure 
+/tmp/$HAVEGED_DIR/make
+/tmp/$HAVEGED_DIR/make install
 /usr/local/sbin/haveged -w 1024
 
 status "Installing CommandBox"

@@ -27,7 +27,8 @@ mkdir -p $CACHE_DIR
 
 status "Installing haveged for additional entropy"
 curl --location 'http://www.issihosts.com/haveged/haveged-1.9.1.tar.gz' -o /tmp/haveged.tar.gz
-tar zxvf /tmp/haveged.tar.gz
+cd /tmp
+tar zxvf haveged.tar.gz 
 HAVEGED_DIR=`tar zxvf /tmp/haveged.tar.gz | head -1 | cut -f1 -d"/"`
 
 status "HAVEGED extracted to /tmp/$HAVEGED_DIR"

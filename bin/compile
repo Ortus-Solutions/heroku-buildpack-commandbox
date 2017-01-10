@@ -25,6 +25,12 @@ install_java_with_overlay ${BUILD_DIR}
 
 mkdir -p $CACHE_DIR
 
+status "Installing haveged for additional entropy"
+curl --location 'http://www.issihosts.com/haveged/haveged-1.9.1.tar.gz' -o /tmp/haveged.tar.gz
+tar zxvf /tmp/haveged.tar.gz
+cd /tmp/haveged && ./configure & make & make install
+/usr/local/sbin/haveged -w 1024
+
 status "Installing CommandBox"
 
 curl --location 'https://www.ortussolutions.com/parent/download/commandbox/type/bin' -o /tmp/box.zip

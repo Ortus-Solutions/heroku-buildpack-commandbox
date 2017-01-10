@@ -33,10 +33,10 @@ HAVEGED_DIR=`tar zxvf /tmp/haveged.tar.gz | head -1 | cut -f1 -d"/"`
 status "HAVEGED extracted to /tmp/$HAVEGED_DIR"
 
 cd /tmp/$HAVEGED_DIR
-./configure 
+./configure --prefix=/app
 make
 make install
-/usr/local/sbin/haveged -w 1024
+/app/sbin/haveged -w 1024
 
 status "Installing CommandBox"
 

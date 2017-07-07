@@ -38,8 +38,7 @@ $BIN_DIR/util/install-commandbox.sh
 #Set our commandbox home directory
 touch $BUILD_DIR/bin/commandbox.properties
 chmod +rw $BUILD_DIR/bin/commandbox.properties
-mkdir -p /opt
-echo "/opt/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
+echo "$BUILD_DIR/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
 
 COMMANDBOX_VERSION="$(box version)"
 
@@ -56,7 +55,7 @@ status "Commandbox Compilation Complete"
 cd $APP_DIR
 
 status "Configuring Container Host Defaults"
-box server set web.host=0.0.0.0 openbrowser=false app.serverHomeDirectory=/opt/serverHome
+box server set web.host=0.0.0.0 openbrowser=false app.serverHomeDirectory=$BUILD_DIR/serverHome
 status "Host Configuration Complete"
 
 

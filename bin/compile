@@ -56,6 +56,7 @@ status "CFConfig module successfully installed"
 
 #Install JQ
 curl -L http://stedolan.github.io/jq/download/linux64/jq > $BIN_DIR/jq
+chmod +x $BIN_DIR/jq
 
 # Change our Commandbox home to the runtime
 echo "commandbox_home=/app/.bin/.CommandBox" > $BIN_DIR/commandbox.properties

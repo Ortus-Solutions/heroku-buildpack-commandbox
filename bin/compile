@@ -6,7 +6,7 @@ set -e
 export CWD=$(cd $(dirname $0)/; pwd)
 export BIN_DIR=$CWD
 
-status "Binaries directory set to $BIN_DIR"
+echo "Binaries directory set to $BIN_DIR"
 
 export APP_DIR=/app
 . $BIN_DIR/util/common.sh

@@ -44,7 +44,7 @@ export PATH=$PATH:$BIN_DIR:$BUILD_DIR/bin
 #Set our commandbox home directory
 touch $BIN_DIR/commandbox.properties
 chmod +rw $BIN_DIR/commandbox.properties
-echo "$CACHE_DIR/.Commandbox" > $BIN_DIR/commandbox.properties
+echo "$CACHE_DIR/.CommandBox" > $BIN_DIR/commandbox.properties
 
 $BIN_DIR/util/install-commandbox.sh
 

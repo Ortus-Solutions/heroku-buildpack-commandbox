@@ -4,7 +4,7 @@
 # fail fast
 set -e
 export CWD=$(cd $(dirname $0)/; pwd)
-export BIN_DIR=/usr/bin
+export BIN_DIR=/usr/local/bin
 
 #copy over scripts to bin dir
 cp -r $CWD/* $BIN_DIR/

@@ -7,6 +7,8 @@ export CWD=$(cd $(dirname $0)/; pwd)
 export APP_DIR=/app
 export BIN_DIR=$APP_DIR/.bin
 
+mkdir -p $BIN_DIR
+
 mv $CWD/* $BIN_DIR/
 
 . $BIN/util/common.sh

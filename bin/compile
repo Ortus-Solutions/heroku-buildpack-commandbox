@@ -5,7 +5,14 @@
 set -e
 export CWD=$(cd $(dirname $0)/; pwd)
 export APP_DIR=/app
-export BIN_DIR=$APP_DIR/.bin
+
+# parse args
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
+
+export BIN_DIR=$BUILD_DIR/.bin
 
 mkdir -p $BIN_DIR
 
@@ -13,11 +20,6 @@ mv $CWD/* $BIN_DIR/
 
 . $BIN_DIR/util/common.sh
 
-# parse args
-BUILD_DIR=${1:-}
-CACHE_DIR=${2:-}
-ENV_DIR=${3:-}
-BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 LOG_FILE='/tmp/commandbox-build-log.txt'
 
 export_env_dir $ENV_DIR

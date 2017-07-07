@@ -6,5 +6,5 @@ echo "---"
 cat << EOF
 addons: []
 default_process_types:
-  web: "export PATH=$PATH:/app/.bin && /app/.bin/run/run.sh"
+  web: "$BIN_DIR/run/run.sh"
 EOF

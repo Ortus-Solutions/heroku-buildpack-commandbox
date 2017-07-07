@@ -41,12 +41,12 @@ chmod +x $BIN_DIR/run/*.sh
 status "Installing CommandBox"
 
 mkdir $BUILD_DIR/bin
-export PATH=$PATH:$BIN_DIR:$BUILD_DIR/bin
+export PATH=$PATH:$BIN_DIR
 
 #Set our commandbox home directory
 touch $BIN_DIR/commandbox.properties
 chmod +rw $BIN_DIR/commandbox.properties
-echo "$CACHE_DIR/.CommandBox" > $BIN_DIR/commandbox.properties
+echo "$BIN_DIR/.CommandBox" > $BIN_DIR/commandbox.properties
 
 $BIN_DIR/util/install-commandbox.sh
 
@@ -55,13 +55,6 @@ status "Installing CFConfig module"
 box install commandbox-cfconfig
 status "CFConfig module successfully installed"
 
-status "Commandbox Compilation Complete"
-
-# change to build directory to handle ComandBox Startup
-cd $APP_DIR
-
-status "Configuring Container Host Defaults"
-box server set web.host=0.0.0.0 openbrowser=false app.serverHomeDirectory=$CACHE_DIR/serverHome
-status "Host Configuration Complete"
+status "Commandbox Heroku Image Compilation Complete"
 
 

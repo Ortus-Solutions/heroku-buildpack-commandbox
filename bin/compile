@@ -4,10 +4,9 @@
 # fail fast
 set -e
 export CWD=$(cd $(dirname $0)/; pwd)
-export BIN_DIR=/usr/local/bin
+export BIN_DIR=$CWD
 
-#copy over scripts to bin dir
-cp -r $CWD/* $BIN_DIR/
+status "Binaries directory set to $BIN_DIR"
 
 export APP_DIR=/app
 . $BIN_DIR/util/common.sh

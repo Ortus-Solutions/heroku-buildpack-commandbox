@@ -3,7 +3,8 @@
 
 # fail fast
 set -e
-BIN_DIR=$(cd $(dirname $0)/; pwd)
+export BIN_DIR=$(cd $(dirname $0)/; pwd)
+export APP_DIR=/app
 . $BIN_DIR/util/common.sh
 
 # parse args
@@ -25,30 +26,37 @@ install_java_with_overlay ${BUILD_DIR}
 
 mkdir -p $CACHE_DIR
 
+# Make sure permissions are in place on all of our scripts
+chmod +x $BIN_DIR/util/*.sh
+chmod +x $BIN_DIR/run/*.sh
+
 status "Installing CommandBox"
 
-curl --location 'https://www.ortussolutions.com/parent/download/commandbox/type/bin' -o /tmp/box.zip
 mkdir $BUILD_DIR/bin
 export PATH=$PATH:$BUILD_DIR/bin
-unzip /tmp/box.zip -d $BUILD_DIR/bin
-chmod +x $BUILD_DIR/bin/box
+$BIN_DIR/util/install-commandbox.sh
 #Set our commandbox home directory
 touch $BUILD_DIR/bin/commandbox.properties
 chmod +rw $BUILD_DIR/bin/commandbox.properties
-echo "/app/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
+mkdir -p /opt
+echo "/opt/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
 
 COMMANDBOX_VERSION="$(box version)"
 
 status "$COMMANDBOX_VERSION successfully installed"
 
-# change to build directory to handle ComandBox Startup
-cd $BUILD_DIR
-
-status "Configuring Container Host"
-box server set web.host=0.0.0.0
-box server set openbrowser=false
-status "Host Configuration Complete"
-
+# install CFConfig modules
+status "Installing CFConfig module"
+box install commandbox-cfconfig
+status "CFConfig module successfully installed"
 
 status "Commandbox Compilation Complete"
+
+# change to build directory to handle ComandBox Startup
+cd $APP_DIR
+
+status "Configuring Container Host Defaults"
+box server set web.host=0.0.0.0 openbrowser=false app.serverHomeDirectory=/opt/serverHome
+status "Host Configuration Complete"
+
 

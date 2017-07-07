@@ -134,12 +134,12 @@ fi
 
 # If the headless flag is up, remove our administrative interfaces
 if [[ $HEADLESS ]] || [[ $headless ]]; then
-	$BUILD_DIR/util/env-headless.sh
+	$BIN_DIR/util/env-headless.sh
 fi
 
 # If Server URL Rewrites are set, then activate it 
 if [[ $URL_REWRITES ]] || [[ $url_rewrites ]] || [[ -z "$URL_REWRITES" ]]; then
-	$BUILD_DIR/util/env-rewrites.sh
+	$BIN_DIR/util/env-rewrites.sh
 fi
 
 # We need to do this all on one line because escaped line breaks 

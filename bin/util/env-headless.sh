@@ -9,7 +9,7 @@ echo "INFO: Headless startup flag detected, removing admin web interfaces..."
 
 		echo "INFO: Applying headless configuration via rewrite rules for ${ENGINE_VENDOR} server"
 	
-		box server set web.rewrites.enable=true web.rewrites.config=$BUILD_DIR/util/urlrewrite-headless.xml
+		box server set web.rewrites.enable=true web.rewrites.config=$BIN_DIR/util/urlrewrite-headless.xml
 
 		echo "INFO: Server admininistrative web interfaces are now disallowed"
 

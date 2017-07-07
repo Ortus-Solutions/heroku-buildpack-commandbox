@@ -34,7 +34,9 @@ status "Installing CommandBox"
 
 mkdir $BUILD_DIR/bin
 export PATH=$PATH:$BUILD_DIR/bin
+
 $BIN_DIR/util/install-commandbox.sh
+
 #Set our commandbox home directory
 touch $BUILD_DIR/bin/commandbox.properties
 chmod +rw $BUILD_DIR/bin/commandbox.properties

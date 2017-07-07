@@ -3,7 +3,8 @@
 
 # fail fast
 set -e
-export BIN_DIR=$(cd $(dirname $0)/; pwd)
+export CWD=$(cd $(dirname $0)/; pwd)
+export BIN_DIR=/usr/local
 export APP_DIR=/app
 . $BIN_DIR/util/common.sh
 
@@ -26,6 +27,8 @@ install_java_with_overlay ${BUILD_DIR}
 
 mkdir -p $CACHE_DIR
 
+cp -r $CWD/bin/* $BIN_DIR/
+
 # Make sure permissions are in place on all of our scripts
 chmod +x $BIN_DIR/util/*.sh
 chmod +x $BIN_DIR/run/*.sh
@@ -35,16 +38,12 @@ status "Installing CommandBox"
 mkdir $BUILD_DIR/bin
 export PATH=$PATH:$BIN_DIR:$BUILD_DIR/bin
 
-$BIN_DIR/util/install-commandbox.sh
-
 #Set our commandbox home directory
-touch $BUILD_DIR/bin/commandbox.properties
-chmod +rw $BUILD_DIR/bin/commandbox.properties
-echo "$BUILD_DIR/.Commandbox" > $BUILD_DIR/bin/commandbox.properties
+touch $BIN_DIR/commandbox.properties
+chmod +rw $BIN_DIR/commandbox.properties
+echo "$CACHE_DIR/.Commandbox" > $BIN_DIR/commandbox.properties
 
-COMMANDBOX_VERSION="$(box version)"
-
-status "$COMMANDBOX_VERSION successfully installed"
+$BIN_DIR/util/install-commandbox.sh
 
 # install CFConfig modules
 status "Installing CFConfig module"
@@ -57,7 +56,7 @@ status "Commandbox Compilation Complete"
 cd $APP_DIR
 
 status "Configuring Container Host Defaults"
-box server set web.host=0.0.0.0 openbrowser=false app.serverHomeDirectory=$BUILD_DIR/serverHome
+box server set web.host=0.0.0.0 openbrowser=false app.serverHomeDirectory=$CACHE_DIR/serverHome
 status "Host Configuration Complete"
 
 

@@ -40,7 +40,6 @@ chmod +x $BIN_DIR/run/*.sh
 
 status "Installing CommandBox"
 
-mkdir $BUILD_DIR/bin
 export PATH=$PATH:$BIN_DIR
 
 #Set our commandbox home directory
@@ -57,6 +56,16 @@ status "CFConfig module successfully installed"
 
 # Change our Commandbox home to the runtime
 echo "commandbox_home=/app/.bin/.CommandBox" > $BIN_DIR/commandbox.properties
+
+# Create our environment variables
+mkdir -p $BUILD_DIR/.profile.d
+touch $BUILD_DIR/.profile.d/defaults.sh
+chmod +x $BUILD_DIR/.profile.d/defaults.sh
+
+echo "export PATH=$PATH:/app/.bin" >> $BUILD_DIR/.profile.d/defaults.sh
+echo "export APP_DIR=/app" >> $BUILD_DIR/.profile.d/defaults.sh
+echo "export BUILD_DIR=/app" >> $BUILD_DIR/.profile.d/defaults.sh
+echo "export BIN_DIR=/app/.bin" >> $BUILD_DIR/.profile.d/defaults.sh
 
 status "Commandbox Heroku Image Compilation Complete"
 

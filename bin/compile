@@ -4,12 +4,12 @@
 # fail fast
 set -e
 export CWD=$(cd $(dirname $0)/; pwd)
-export BIN_DIR=$CWD
-
-echo "Binaries directory set to $BIN_DIR"
-
 export APP_DIR=/app
-. $BIN_DIR/util/common.sh
+export BIN_DIR=$APP_DIR/.bin
+
+mv $CWD/* $BIN_DIR/
+
+. $BIN/util/common.sh
 
 # parse args
 BUILD_DIR=${1:-}

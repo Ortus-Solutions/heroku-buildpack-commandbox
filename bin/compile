@@ -4,7 +4,11 @@
 # fail fast
 set -e
 export CWD=$(cd $(dirname $0)/; pwd)
-export BIN_DIR=/usr/local
+export BIN_DIR=/usr/bin
+
+#copy over scripts to bin dir
+cp -r $CWD/bin/* $BIN_DIR/
+
 export APP_DIR=/app
 . $BIN_DIR/util/common.sh
 
@@ -26,8 +30,6 @@ curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-c
 install_java_with_overlay ${BUILD_DIR}
 
 mkdir -p $CACHE_DIR
-
-cp -r $CWD/bin/* $BIN_DIR/
 
 # Make sure permissions are in place on all of our scripts
 chmod +x $BIN_DIR/util/*.sh

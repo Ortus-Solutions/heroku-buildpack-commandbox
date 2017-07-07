@@ -154,7 +154,4 @@ echo "INFO: Server engine up and running."
 
 echo "INFO: Configuration processed and server started in ${SECONDS} seconds."
 
-# Skip our tail output when running our tests - flag for 500 lines so we can see our context creation
-if [[ ! $IMAGE_TESTING_IN_PROGRESS ]]; then
-	tail -n 500 -f $( echo $(box server info property=consoleLogPath) | xargs )
-fi
+tail -n 500 -f $( echo $(box server info property=consoleLogPath) | xargs )

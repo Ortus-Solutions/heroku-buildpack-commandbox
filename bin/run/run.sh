@@ -37,7 +37,7 @@ if [[ -f server.json ]]; then
 fi
 
 # Default values for engine and home directory - so we can use cfconfig 
-export SERVER_HOME_DIRECTORY="${SERVER_HOME_DIRECTORY:=${HOME}/serverHome}"
+export SERVER_HOME_DIRECTORY="${SERVER_HOME_DIRECTORY:=${BIN_DIR}/serverHome}"
 export CFENGINE="${CFENGINE:=lucee@4.5}"
 FULL_VERSION=${CFENGINE#*@*}
 export ENGINE_VERSION=${FULL_VERSION%%.*}

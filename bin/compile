@@ -11,7 +11,7 @@ mkdir -p $BIN_DIR
 
 mv $CWD/* $BIN_DIR/
 
-. $BIN/util/common.sh
+. $BIN_DIR/util/common.sh
 
 # parse args
 BUILD_DIR=${1:-}

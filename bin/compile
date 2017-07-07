@@ -33,7 +33,7 @@ chmod +x $BIN_DIR/run/*.sh
 status "Installing CommandBox"
 
 mkdir $BUILD_DIR/bin
-export PATH=$PATH:$BUILD_DIR/bin
+export PATH=$PATH:$BIN_DIR:$BUILD_DIR/bin
 
 $BIN_DIR/util/install-commandbox.sh
 

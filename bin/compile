@@ -35,8 +35,8 @@ install_java_with_overlay ${BUILD_DIR}
 mkdir -p $CACHE_DIR
 
 # Make sure permissions are in place on all of our scripts
-chmod 755 $BIN_DIR/util/*.sh
-chmod 755 $BIN_DIR/run/*.sh
+chmod + $BIN_DIR/util/*.sh
+chmod +x $BIN_DIR/run/*.sh
 
 status "Installing CommandBox"
 
@@ -72,5 +72,3 @@ echo "export BUILD_DIR=/app" >> $BUILD_DIR/.profile.d/defaults.sh
 echo "export BIN_DIR=/app/.bin" >> $BUILD_DIR/.profile.d/defaults.sh
 
 status "Commandbox Heroku Image Compilation Complete"
-
-

@@ -6,5 +6,5 @@ echo "---"
 cat << EOF
 addons: []
 default_process_types:
-  web: "cd /app && ./bin/box server set web.http.port=\$PORT && ./bin/box server start && touch /tmp/server.log && sleep 5 && tail -n 500 -f $( echo $(box server info property=consoleLogPath) | xargs )"
+  web: "cd /app && box server set web.http.port=\$PORT && box server start && touch /tmp/server.log && sleep 5 && tail -n 500 -f $( echo $(box server info property=consoleLogPath) | xargs )"
 EOF

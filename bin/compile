@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
-# fail fast
-set -e
+# fail hard
+set -o pipefail
+# fail harder
+set -eu
+
 export CWD=$(cd $(dirname $0)/; pwd)
 export APP_DIR=/app
 

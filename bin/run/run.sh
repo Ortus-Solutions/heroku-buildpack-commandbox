@@ -1,8 +1,13 @@
 #!/bin/bash
-set -e
-cd $APP_DIR
 
 SECONDS=0
+
+# fail hard
+set -o pipefail
+# fail harder
+set -eu
+
+cd $APP_DIR
 
 # CFConfig Available Password Keys
 CFCONFIG_PASSWORD_KEYS=( "adminPassword" "adminPasswordDefault" "hspw" "pw" "defaultHspw" "defaultPw" "ACF11Password" )

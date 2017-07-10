@@ -78,4 +78,8 @@ echo "export APP_DIR=/app" >> $BUILD_DIR/.profile.d/defaults.sh
 echo "export BUILD_DIR=/app" >> $BUILD_DIR/.profile.d/defaults.sh
 echo "export BIN_DIR=/app/.bin" >> $BUILD_DIR/.profile.d/defaults.sh
 
+#Create a default Procfile
+
+echo "web: cd /app && /app/.bin/run/run.sh" > $BUILD_DIR/Procfile
+
 status "Commandbox Heroku Image Compilation Complete"

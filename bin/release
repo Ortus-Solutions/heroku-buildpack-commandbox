@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-cat <<EOF
----
+echo "---"
+
+cat << EOF
 addons: []
 default_process_types:
-  web: /app/.bin/run/run.sh
+  web: "cd /app && ./bin/box server set web.http.port=\$PORT && ./bin/box server start && touch /tmp/server.log && sleep 5 && tail -n 500 -f $( echo $(box server info property=consoleLogPath) | xargs )"
 EOF

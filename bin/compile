@@ -35,8 +35,8 @@ install_java_with_overlay ${BUILD_DIR}
 mkdir -p $CACHE_DIR
 
 # Make sure permissions are in place on all of our scripts
-chmod +x $BIN_DIR/util/*.sh
-chmod +x $BIN_DIR/run/*.sh
+chmod 755 $BIN_DIR/util/*.sh
+chmod 755 $BIN_DIR/run/*.sh
 
 status "Installing CommandBox"
 

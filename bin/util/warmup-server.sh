@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Starting up container in test mode"
 # We send up our "testing" flag to prevent the default CommandBox image run script from begining to tail output, thus stalling our build
 export IMAGE_TESTING_IN_PROGRESS=true

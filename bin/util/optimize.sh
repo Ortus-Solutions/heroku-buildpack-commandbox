@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Cleanup CommandBox modules which would not be necessary in a Container environment
 UI_MODULES=( "coldbox" "contentbox" "logbox" "games" "wirebox" )

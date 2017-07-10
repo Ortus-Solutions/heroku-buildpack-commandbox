@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "****************************************************************"
 echo "INFO: Headless startup flag detected, removing admin web interfaces..."
 

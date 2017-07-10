@@ -2,10 +2,8 @@
 
 SECONDS=0
 
-# fail hard
-set -o pipefail
-# fail harder
-set -eu
+#fail hard
+set -e
 
 cd $APP_DIR
 

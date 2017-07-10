@@ -5,5 +5,5 @@ cat <<EOF
 ---
 addons: []
 default_process_types:
-  web: /app/.bin/run/run.sh
+  web: "/app/.bin/run/run.sh"
 EOF

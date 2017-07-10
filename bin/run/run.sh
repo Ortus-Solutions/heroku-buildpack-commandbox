@@ -39,7 +39,7 @@ if [[ -f server.json ]]; then
 
 fi
 
-# Default values for engine and home directory - so we can use cfconfig 
+# Default values for engine and home directory - so we can use cfconfig
 export SERVER_HOME_DIRECTORY="${SERVER_HOME_DIRECTORY:=${BIN_DIR}/serverHome}"
 export CFENGINE="${CFENGINE:=lucee@4.5}"
 FULL_VERSION=${CFENGINE#*@*}
@@ -144,6 +144,9 @@ fi
 if [[ $URL_REWRITES ]] || [[ $url_rewrites ]] || [[ -z "$URL_REWRITES" ]]; then
 	$BIN_DIR/util/env-rewrites.sh
 fi
+
+# Set a default port for Dokku builds
+export PORT="${PORT:=5000}"
 
 # We need to do this all on one line because escaped line breaks 
 # aren't picked up correctly by CommandBox on this base image ( JIRA:COMMANDBOX-598 )
